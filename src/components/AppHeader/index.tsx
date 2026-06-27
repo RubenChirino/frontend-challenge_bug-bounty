@@ -19,14 +19,14 @@ const typoStyle = {
   display: "flex",
   alignContent: "center",
   justifyContent: "center",
-  lineHeight: 1
+  lineHeight: 1,
 };
 
 const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
   backgroundColor: theme.palette.common.black,
   color: theme.palette.common.white,
-  height: theme.tokens.header.height
+  height: theme.tokens.header.height,
 }));
 
 const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
@@ -43,9 +43,13 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
   const countdownSeconds = (countdown % 60).toFixed(0).padStart(2, "0");
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   return (
@@ -63,7 +67,7 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
               sx={{
                 ...typoStyle,
                 color: theme.palette.primary.main,
-                mb: theme.spacing(0.5)
+                mb: theme.spacing(0.5),
               }}
               variant="h6"
               component="div"
