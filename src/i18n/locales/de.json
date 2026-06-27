@@ -8,6 +8,28 @@
   "home": {
     "welcome": "Willkommen!",
     "intro": "Dies ist eine Demo-Anwendung mit einigen Störungen und Fehlern, von denen wir hoffen, dass du sie finden kannst. 😃 Hier die Liste der <b>bekannten</b> Probleme:",
-    "sidenote": "Alle Fehler haben einen unterschiedlichen Komplexitätsgrad und alle sind ziemlich häufig (Probleme aus der echten Welt für jeden React-Entwickler). Um alle offenen Punkte zu lösen, sind unterschiedliche Fähigkeiten erforderlich: Googeln, Erfahrung, das Lesen von Dokumentationen und Fehlermeldungen, Kreativität und analytisches Denken."
+    "sidenote": "Alle Fehler haben einen unterschiedlichen Komplexitätsgrad und alle sind ziemlich häufig (Probleme aus der echten Welt für jeden React-Entwickler). Um alle offenen Punkte zu lösen, sind unterschiedliche Fähigkeiten erforderlich: Googeln, Erfahrung, das Lesen von Dokumentationen und Fehlermeldungen, Kreativität und analytisches Denken.",
+    "issues": {
+      "uniqueKey": {
+        "title": "Konsolenfehler: Warnung: Jedes Kind in einer Liste sollte eine eindeutige \"key\"-Eigenschaft haben.",
+        "description": "Wir hoffen, dass du herausfindest, was diesen Fehler verursacht, denn er ist lästig."
+      },
+      "boldText": {
+        "title": "Das Wort \"known\" sollte im Einführungstext fett dargestellt werden.",
+        "description": "Stelle bei der Umsetzung einer Lösung sicher, dass der i18n-Text nicht verändert wird."
+      },
+      "missingAvatar": {
+        "title": "Der Benutzer-Avatar in der App-Leiste fehlt, obwohl der Benutzer beim App-Start korrekt geladen werden sollte.",
+        "description": "Beim App-Start laden wir das aktuelle Benutzerobjekt über einen MobX-Store, aber aus irgendeinem Grund wird der Benutzer-Avatar nicht oben rechts in der App-Leiste angezeigt. Achtung: Beim Lösen dieses Problems wirst du möglicherweise mit einem zweiten Fehler konfrontiert."
+      },
+      "countdown": {
+        "title": "Optional: Der Countdown ist manchmal fehlerhaft (schwer zu reproduzieren).",
+        "description": "Einige Entwickler haben erwähnt, dass sich der Countdown in der App-Kopfzeile manchmal seltsam verhält, aber leider konnten sie diesen Fehler nicht zuverlässig reproduzieren. Vielleicht findest du die Ursache."
+      },
+      "languageSwitch": {
+        "title": "Optional: Es wäre toll, die Sprache wechseln zu können.",
+        "description": "Bitte füge ein Sprachauswahl-Steuerelement in der App-Leiste hinzu, um die UI-Sprache zwischen Englisch und Deutsch umzuschalten."
+      }
+    }
   }
 }
