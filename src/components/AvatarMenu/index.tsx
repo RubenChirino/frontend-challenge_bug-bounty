@@ -15,7 +15,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { User } from "../../api/services/User/store";
 
-interface AvatarMenuProps {
+interface AvatarMenuProps extends React.HTMLAttributes<HTMLDivElement> {
   user: User;
 }
 
@@ -43,8 +43,8 @@ const stringAvatar = (user: User) => {
   };
 };
 
-const AvatarMenu = (props: AvatarMenuProps) => {
-  const { user } = props;
+const AvatarMenu = React.forwardRef<HTMLDivElement, AvatarMenuProps>(
+  ({ user, ...other }, ref) => {
   const theme = useTheme();
   const { t } = useTranslation("app");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -58,7 +58,7 @@ const AvatarMenu = (props: AvatarMenuProps) => {
   // const history = useHistory();
 
   return (
-    <div>
+    <div ref={ref} {...other}>
       <Avatar onClick={handleClick} {...stringAvatar(user)} />
       <Menu
         id="demo-positioned-menu"
@@ -145,6 +145,9 @@ const AvatarMenu = (props: AvatarMenuProps) => {
       </Menu>
     </div>
   );
-};
+  }
+);
+
+AvatarMenu.displayName = "AvatarMenu";
 
 export default AvatarMenu;
