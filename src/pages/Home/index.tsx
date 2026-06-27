@@ -51,7 +51,7 @@ const Home = () => {
   const { t } = useTranslation("app");
 
   return (
-    <Box p={2} maxHeight="calc(100vh - 64px)" overflow={["auto", "auto"]}>
+    <Box p={2} maxHeight="calc(100vh - 110px)" overflow={["auto", "auto"]}>
       <Container>
         <Typography variant="h1" textAlign="center">
           {t("home.welcome")}

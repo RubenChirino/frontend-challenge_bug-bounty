@@ -21,17 +21,39 @@ const getBrowserLanguage = () => {
 
 const browserLanguage = getBrowserLanguage();
 
+export const LANGUAGE_STORAGE_KEY = "appLanguage";
+
+const getStoredLanguage = (): string | null => {
+  try {
+    return localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const getInitialLanguage = () =>
+  getStoredLanguage() || browserLanguage || FALLBACK_LANGUAGE;
+
 export const defaultTranslationModules = [
   { locale: "de", texts: de },
   { locale: "en", texts: en }
-];
+] as const;
 export const defaultLanguages = defaultTranslationModules.map((m) => m.locale);
+
+export type Locale = (typeof defaultTranslationModules)[number]["locale"];
 
 const resources = cloneDeep(
   Object.fromEntries(
     defaultTranslationModules.map((m) => [m.locale, { app: m.texts }])
   )
 );
+
+i18n.on("languageChanged", (lng) => {
+  document.documentElement.lang = lng;
+  try {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
+  } catch {}
+});
 
 i18n
   // pass the i18n instance to react-i18next.
@@ -43,8 +65,10 @@ i18n
     resources,
     ns: ["common", "app"],
     defaultNS: "app",
-    lng: FALLBACK_LANGUAGE || browserLanguage,
+    lng: getInitialLanguage(),
     fallbackLng: FALLBACK_LANGUAGE,
+    supportedLngs: defaultLanguages,
+    load: "languageOnly",
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default
     }

@@ -104,7 +104,7 @@ export const tokens: OsapiensThemeTokens = {
     height: "80px"
   },
   header: {
-    height: "64px"
+    height: "110px"
   }
 };
 

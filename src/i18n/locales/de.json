@@ -1,1 +1,13 @@
-{}
+{
+  "logout": "Abmelden",
+  "language": "Sprache",
+  "appTitle": "Supplier OS Anwendung",
+  "routes": {
+    "/home": "Bug Bounty Challenge"
+  },
+  "home": {
+    "welcome": "Willkommen!",
+    "intro": "Dies ist eine Demo-Anwendung mit einigen Störungen und Fehlern, von denen wir hoffen, dass du sie finden kannst. 😃 Hier die Liste der <b>bekannten</b> Probleme:",
+    "sidenote": "Alle Fehler haben einen unterschiedlichen Komplexitätsgrad und alle sind ziemlich häufig (Probleme aus der echten Welt für jeden React-Entwickler). Um alle offenen Punkte zu lösen, sind unterschiedliche Fähigkeiten erforderlich: Googeln, Erfahrung, das Lesen von Dokumentationen und Fehlermeldungen, Kreativität und analytisches Denken."
+  }
+}
